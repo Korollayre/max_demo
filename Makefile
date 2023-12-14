@@ -12,7 +12,7 @@ direct_deps: venv
 # Установка пакетов указанных в `requirements.txt`
 .PHONY: deps
 deps: venv
-	(. ./venv/bin/activate; pip install -r requirements.txt)
+	(. ./venv/bin/activate; pip install -e .[dev])
 
 # Удаление виртуального окружения
 .PHONY: del_deps
@@ -27,7 +27,7 @@ freeze:
 # Запуск
 .PHONY: run
 run:
-	(. ./venv/bin/activate; streamlit run src/ui/client.py)
+	(. ./venv/bin/activate; streamlit run src/package/ui/client.py)
 
 # Запуск тестов
 .PHONY: test
